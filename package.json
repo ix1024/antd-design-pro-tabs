@@ -31,13 +31,23 @@
     "tsc": "tsc",
     "ui": "umi ui"
   },
-  "husky": { "hooks": { "pre-commit": "npm run lint-staged" } },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  },
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",
     "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
-    "**/*.{js,jsx,tsx,ts,less,md,json}": ["prettier --write"]
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write"
+    ]
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 10"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ],
   "dependencies": {
     "@ant-design/pro-layout": "^4.10.13",
     "@antv/data-set": "^0.11.0",
@@ -79,7 +89,6 @@
     "express": "^4.17.1",
     "gh-pages": "^2.0.1",
     "husky": "^4.0.7",
-    "jest-puppeteer": "^4.2.0",
     "jsdom-global": "^3.0.2",
     "lint-staged": "^10.0.0",
     "mockjs": "^1.0.1-beta3",
@@ -92,8 +101,9 @@
     "umi-plugin-pro": "^1.0.2",
     "umi-types": "^0.5.0"
   },
-  "optionalDependencies": { "puppeteer": "^2.0.0" },
-  "engines": { "node": ">=10.0.0" },
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "checkFiles": [
     "src/**/*.js*",
     "src/**/*.ts*",

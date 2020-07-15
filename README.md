@@ -4,7 +4,7 @@
 
 ![demo](/demo.png)
 
-![demo](/demo1.png)
+![demo](/demo1.png) ![demo](/demo3.gif)
 
 This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
 

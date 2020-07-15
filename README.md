@@ -2,6 +2,8 @@
 
 ## 基于Ant Design Pro 二次开发，支持多Tab标签页面，模拟Chrome标签页功能
 
+![demo](/demo.png)
+
 This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
 
 ## Environment Prepare

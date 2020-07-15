@@ -13,6 +13,7 @@ import Authorized from '@/utils/Authorized';
 import RightContent from '@/components/GlobalHeader/RightContent';
 import { isAntDesignPro, getAuthorityFromRouter } from '@/utils/utils';
 import logo from '../assets/logo.svg';
+import PageTab from './PageTab';
 
 const noMatch = (
   <Result
@@ -63,6 +64,9 @@ const defaultFooterDom = (
 );
 
 const footerRender = () => {
+  if (1) {
+    return null;
+  }
   if (!isAntDesignPro()) {
     return defaultFooterDom;
   }
@@ -156,8 +160,8 @@ const BasicLayout = props => {
         return first ? (
           <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
         ) : (
-          <span>{route.breadcrumbName}</span>
-        );
+            <span>{route.breadcrumbName}</span>
+          );
       }}
       footerRender={footerRender}
       menuDataRender={menuDataRender}
@@ -167,7 +171,7 @@ const BasicLayout = props => {
       {...settings}
     >
       <Authorized authority={authorized.authority} noMatch={noMatch}>
-        {children}
+        <PageTab>{children}</PageTab>
       </Authorized>
     </ProLayout>
   );

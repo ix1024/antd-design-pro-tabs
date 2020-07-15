@@ -1,5 +1,6 @@
 import { parse } from 'querystring';
 import pathRegexp from 'path-to-regexp';
+import router from 'umi/router';
 
 /* eslint no-useless-escape:0 import/prefer-default-export:0 */
 const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/;
@@ -56,4 +57,44 @@ export const getRouteAuthority = (path, routeData) => {
     }
   });
   return authorities;
+};
+
+
+export const store = {
+  save: (name, value, type = 'localtorage') => {
+    if ((type || '').toLocaleLowerCase() === 'localstorage') {
+      localStorage.setItem(name, JSON.stringify(value));
+    } else if ((type || '').toLocaleLowerCase() === 'sessionstorage') {
+      sessionStorage.setItem(name, JSON.stringify(value));
+    }
+  },
+  get: (name, type = 'localStorage') => {
+    if ((type || '').toLocaleLowerCase() === 'localstorage') {
+      return JSON.parse(localStorage.getItem(name) || '{}');
+    } else if ((type || '').toLocaleLowerCase() === 'sessionstorage') {
+      return JSON.parse(sessionStorage.getItem(name) || '{}');
+    }
+  },
+};
+
+
+/**
+ * 新的-新开窗口方法
+ */
+export const openPage = (options = {}) => {
+  const {
+    id = Math.random()
+      .toString(32)
+      .slice(2),
+    url,
+    title = '新标签页',
+    data = {},
+  } = options;
+  if (!url) {
+    return;
+  }
+  console.log(`新开标签页 id=${id} title=${title} url=${url} data=${JSON.stringify(data)} `);
+  store.save(id, { url, title, data }, 'sessionstorage');
+  const path = `/CustomPage/${id}`;
+  router.push(path);
 };

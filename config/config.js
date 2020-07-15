@@ -34,11 +34,11 @@ const plugins = [
       },
       pwa: pwa
         ? {
-            workboxPluginMode: 'InjectManifest',
-            workboxOptions: {
-              importWorkboxFrom: 'local',
-            },
-          }
+          workboxPluginMode: 'InjectManifest',
+          workboxOptions: {
+            importWorkboxFrom: 'local',
+          },
+        }
         : false, // default close dll, because issue https://github.com/ant-design/ant-design-pro/issues/4665
       // dll features https://webpack.js.org/plugins/dll-plugin/
       // dll: {
@@ -106,6 +106,18 @@ export default {
               name: 'welcome',
               icon: 'smile',
               component: './Welcome',
+            },
+            {
+              path: '/CustomPage/:id',
+              name: 'CustomPage',
+              component: './CustomPage',
+              hideInMenu: true,
+            },
+            {
+              path: '/test',
+              name: 'test',
+              icon: 'smile',
+              component: './Test',
             },
             {
               path: '/admin',

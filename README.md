@@ -8,7 +8,9 @@
 
 ## 更新日志
 
-1、添加标签支持拖动
+1、添加标签支持拖动(2020-07-16);
+
+#
 
 This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
 

@@ -11,9 +11,9 @@
 import { connect } from 'dva';
 import router from 'umi/router';
 import React, { Component } from 'react';
+import { message, Tabs, Menu, Dropdown, Tooltip, Icon } from 'antd';
+import DraggableTabs from './DraggableTabs';
 import pageTabStyle from './PageTab.less';
-import { message } from 'antd';
-import { Tabs, Menu, Dropdown, Tooltip, Icon } from 'antd';
 
 const { TabPane } = Tabs;
 const TABS_NOT_TIPS = 'TABS_NOT_TIPS';
@@ -79,7 +79,7 @@ const menu = obj => {
           window.location.reload(true);
         }}
       >
-        <span title={'强制刷新浏览器'}>
+        <span title="强制刷新浏览器">
           <Icon type="reload" />
           刷新浏览器
         </span>
@@ -220,10 +220,8 @@ class App extends Component {
           if (index > cIndex) {
             return undefined;
           }
-        } else {
-          if (item.key !== key) {
-            return undefined;
-          }
+        } else if (item.key !== key) {
+          return undefined;
         }
         return item;
       })
@@ -236,7 +234,7 @@ class App extends Component {
 
     return (
       <div>
-        <Tabs
+        <DraggableTabs
           className={`page-tab ${pageTabStyle.page}`}
           hideAdd
           activeKey={activeKey}
@@ -283,7 +281,7 @@ class App extends Component {
               </TabPane>
             );
           })}
-        </Tabs>
+        </DraggableTabs>
       </div>
     );
   }

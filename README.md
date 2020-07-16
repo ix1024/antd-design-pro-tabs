@@ -6,6 +6,10 @@
 
 ![demo](/demo1.png) ![demo](/demo3.gif)
 
+## 更新日志
+
+1、添加标签支持拖动
+
 This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
 
 ## Environment Prepare
